@@ -1,0 +1,8 @@
+git add <nombre archivo>
+agrega el archivo al control del git
+
+git commit -m "COMANDOS GIT"<nombre del archivo>
+sube el archivo a el repositorio local
+
+git push "COMANDOS GIT"<nombre del archivo>
+sube el archivo a el repositorio remoto
