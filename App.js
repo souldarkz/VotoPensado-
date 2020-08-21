@@ -1,15 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator, StackView } from '@react-navigation/stack';
+import {Dignidades} from "./pantallas/Dignidades"
+const Tab = createBottomTabNavigator();
+const HomeStack = createStackNavigator();
 
-export default function App() {
+function A() {
+  return <Dignidades></Dignidades>;
+}
+
+function DignidadesScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Proyecto colaborativo</Text>
-      <StatusBar style="auto" />
-    </View>
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="VotoPensado"
+        component={A}
+        options={{ tabBarLabel: "Votos" }}
+      />
+    </HomeStack.Navigator>
   );
 }
+export default class App extends Component {
+  
+  
+  render(){
+    return  <NavigationContainer>
+    <Tab.Navigator >
+      <Tab.Screen name="Dignidades" component={DignidadesScreen} />
+    </Tab.Navigator>
+  </NavigationContainer>
+  }}
 
 const styles = StyleSheet.create({
   container: {
